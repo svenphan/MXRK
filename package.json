@@ -1,0 +1,15 @@
+{
+  "name": "jawbone-data",
+  "description": "Jawbone data API",
+  "version": "0.0.1",
+  "author": "mikko.tormala",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "private": "true",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "^4.8.5",
+    "request": "*"
+  }
+}

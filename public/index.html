@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+        <title>The Imprint Campaign-Jawbone</title>
+        <link rel="stylesheet" href="css/normalize.css">
+          <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.min.css">
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/my-app.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+    </head>
+    <body>
+
+
+        <!-- Views-->
+        <!--Mark Text Old
+        <h1 id="h1Title">MXRK</h1>
+        -->
+
+        <!--Border-->
+        <div id="rightBorder"></div>
+        <div id="leftBorder"></div>
+        <div id="topBorder"></div>
+        <div id="bottomBorder"></div>
+        <!--End of Border-->
+
+        <div id="logoContainer"><img src="img/MXRKlogo.png"></img></div>
+        <div class="backgroundFade">
+        </div>
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+                <div class="pages navbar-through toolbar-through">
+                <!-- Index Page-->
+                    <div data-page="index" class="page">
+                        <!-- Scrollable page content-->
+                        <div class="page-content">
+                            <div id="runner_TContainer">
+                                <div id="instructions">
+                                    <h3>LOGIN</h3>
+                                    <div class="arrow-up"></div>
+                                </div>
+                            </div>
+                            <div id="inputContainer">
+                                <div id="inputForm">
+                                    <input type="tel" placeholder="RUNNER ID" value="">
+                                    <a href="#about" class="item-link">
+                                    <div class="item-title" id="submitArrow"><img id="submit" src="img/arrowSubmit.png"></img></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="runner_BContainer">
+                            </div>
+                        </div>
+                        <!-- About Page-->
+                        <div data-page="about" class="page cached">
+                            <div class="page-content">
+                                <div class="content-block">
+                                    <p style="position:fixed;top:20;left:20px"><a href="#" class="back">back</a></p>
+                                    <div id="charity_TContainer">
+                                    </div>
+                                    <div id="charity_BContainer">
+                                        <div id="selectInstructions">
+                                            <h3>SELECT</h3>
+                                            <div class="arrow-up"></div>
+                                        </div>
+                                    </div>
+                                    <ul id="selectCharity">
+                                        <li><a href="charityPage.html" class="item-link item-content">LGBT RIGHTS</a></li>
+                                        <li><a href="charityPage.html" class="item-link item-content">WOMENS RIGHTS</a></li>
+                                        <li><a href="charityPage.html" class="item-link item-content">CHILDRENS RIGHTS</a></li>
+                                        <li><a href="charityPage.html" class="item-link item-content">ALL</a></li>
+                                    </ul>
+                                <!--Defult Framework7 Back
+                                <p><a href="#" class="back">back</a>
+                                </p>
+                                -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!---
+    
+        <p class="steps"></p>
+
+       
+        <div id="container">
+            <header>
+            </header>
+            
+            <div id="main">
+              <canvas id="processing"></canvas>
+            </div>
+            
+            <footer>
+            </footer>
+          </div> -->
+          
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/js/libs/underscore-1.1.4.min.js"></script>
+        <script src="/js/libs/processing-1.0.0.min.js"></script>
+        <script src="/js/libs/coffee-script.js"></script>
+        <script src="/js/libs/FileSaver.min.js"></script>
+        <script src="/js/libs/canvas-toBlob.js"></script>   
+        <script src="js/plugins.js"></script>
+        <!--
+        <script src="js/main.js"></script>-->
+        <!--
+        <script src="js/coffeetojs.js"></script>-->
+
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/my-app.js"></script>
+
+        <script>
+            App.init();
+        </script>
+
+    </body>
+</html>

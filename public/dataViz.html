@@ -1,0 +1,46 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">My Cars</div>
+    <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
+  </div>
+</div>
+<div class="pages">
+  <div data-page="dataViz" class="page">
+    <div class="page-content">
+      <p style="position:fixed;top:20;left:20px"><a href="#" class="back" style="color:grey;">BACK</a></p>
+    	<div id="infoContainer">
+        <div class="topInfo">
+          <p class="kilometers">-</p>
+           <p class="totalKilometers">/20KM</p>
+        </div>
+        <div class="bottomInfo">
+          <table>
+            <tr>
+              <td><img id="heartIcon" src="img/heartIcon.png"></img></td>
+              <td><img id="runningIcon" src="img/runningIcon.png"></img></td>
+              <td><img id="watchIcon" src="img/watchIcon.png"></img></td>
+            </tr>
+            <tr id="dataInfo">
+              <td>1</td>
+              <td class="steps">-</td>
+              <td><time>--</time></td>
+            </tr>
+            <tr id="tableMetrics">
+              <td>/MIN</td>
+              <td>/STEPS</td>
+              <td>/S</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+     
+      <div id="main">
+            <a class="button" id="btn-download" target="_blank">Download</a>
+              <canvas id="the_canvas"></canvas>
+              <img id="canvasImg" />
+      </div>
+            
+  </div>
+</div>

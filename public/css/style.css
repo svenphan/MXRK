@@ -1,0 +1,427 @@
+@font-face { font-family: proximaNovaBlack; src: url('../fonts/ProximaNova-Bold.otf');}
+@font-face { font-family: proximaNovaExtraBold; src: url('../fonts/ProximaNova-Extrabold.otf');}
+@font-face { font-family: proximaNovaLight; src: url('../fonts/ProximaNova-Light.otf');}
+@font-face { font-family: proximaNovaRegular;  src: url('../fonts/ProximaNova-Regular.otf');}
+@font-face { font-family: proximaNovaSemiBold; src: url('../fonts/ProximaNova-Semibold.otf');}
+@font-face { font-family: proximaNovaCond-Regular; src: url('../fonts/ProximaNovaCond-Regular.otf');}
+@font-face { font-family: proximaNovaCond-SemiBold; src: url('../fonts/ProximaNova-Semibold.otf');}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+	font-family: 'Karla', sans-serif;
+}
+
+.back{
+	font-family:"proximaNovaSemiBold";
+	color:white;
+	font-size:14px;
+	text-transform:uppercase;
+}
+
+.page-content{
+	overflow: hidden;
+	height: 100%;
+	display: block;
+}
+
+.toolbar-through .page-content{
+	padding:0px;
+	background:white;
+}
+
+.content-block{
+	margin:0;
+	padding:0;
+	height:100%;
+	background:white;
+}
+
+#logoContainer{
+	width: 70%;
+	z-index: 70000;
+	position: fixed;
+	bottom: 0;
+	left: 15%;
+	margin-bottom: 115px;
+	-webkit-animation: logoFade 4s; /* Chrome, Safari, Opera */ 
+    z-index: 60001;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+    animation: logoFade 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode:forwards;
+
+}
+
+#logoContainer img{
+	width:100%;
+	height:100%;
+}
+
+#topBorder{
+	position:fixed;
+	top:0;
+	width:100%;
+	height:9px;
+	z-index:70000;
+	background:white;
+}
+
+#leftBorder{
+	position:fixed;
+	left:0;
+	width:9px;
+	height:100%;
+	z-index:70000;
+	background:white;
+}
+
+#rightBorder{
+	position:fixed;
+	right:0;
+	width:9px;
+	height:100%;
+	z-index:70000;
+	background:white;
+}
+
+#bottomBorder{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	height:9px;
+	z-index:70000;
+	background:white;
+}
+
+.backgroundFade{
+	background: url("../img/introScreen.png") center no-repeat;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+    -webkit-animation: backgroundFade 4s; /* Chrome, Safari, Opera */ 
+    -webkit-background-size:cover;
+    z-index:6000;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+    animation: backgroundFade 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode:forwards;
+    
+}
+
+h3{
+	margin: 0;
+	color: white;
+	letter-spacing: 1px;
+	font-family: "proximaNovaSemiBold";
+	margin-left: -12px;
+
+}
+
+#instructions{
+	position: absolute;
+	z-index: 500;
+	left: 35px;
+	bottom:0;
+}
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom:14px solid white;
+}
+
+
+#runner_TContainer{
+	background: url("../img/mountainShot.png") center no-repeat;
+	background-size: cover;
+	-webkit-background-size:cover;
+	height:60%;
+	width:100%;
+	position:relative;
+}
+
+#runner_BContainer{
+	background: url("../img/jawboneBracelet.png") center no-repeat;
+	background-size: cover;
+	-webkit-background-size:cover;
+	height:28%;
+	width:100%;
+	background-position-y: -60px;
+}
+
+input{
+	border: none;
+	background: none;
+	height: 100%;
+	width: 100%;
+	font-size: 2rem;
+	color: #A3ABB7;
+	text-align: center;
+	padding:0;
+
+
+}
+
+#inputContainer{
+	width: 100%;
+	height: 12%;
+	background: white;
+	padding-top: 13px;
+}
+
+
+#inputForm{
+	width: 83%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #D3DCF2;
+	height: 42px;
+	padding-top:1.5px;
+
+
+}
+
+#submitArrow{
+	display: inline;
+}
+
+#submitArrow.showMe{
+	opacity: 0;
+}
+
+
+#submitArrow img{
+	width: 20%;
+	opacity: 0;
+	margin: 35% auto;
+}
+
+#selectInstructions{
+	position: absolute;
+	z-index: 500;
+	bottom:0;
+	left: 35px;
+}
+
+
+#charity_TContainer{
+	background: url("../img/jawbonePtrn.png") center no-repeat;
+	background-size: cover;
+	-webkit-background-size:cover;
+	height:20%;
+	width:100%;
+	margin-bottom:8px;
+}
+
+#charity_BContainer{
+	background: url("../img/up24run.png") center no-repeat;
+	background-size: cover;
+	-webkit-background-size:cover;
+	height:40%;
+	width:100%;
+	position:relative;
+}
+
+#selectCharity{
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 2%;
+	line-height: 50px;
+}
+
+#selectCharity li{
+	font-size: 1.27rem;
+	font-family: "proximaNovaSemiBold";
+	letter-spacing: 2px;
+}
+
+#selectCharity li a{
+	color:#666666;
+}
+
+#beginRunBG{
+	background: url("../img/introScreenBW.png") center no-repeat;
+	background-size: cover;
+	-webkit-background-size:cover;
+}
+
+
+/*charityPage*/
+
+#svgContainer{
+	width: 100%;
+	height: 30%;
+	margin: 50% auto;
+}
+
+
+#runningMan{
+	width: 25%;
+	position: fixed;
+	top: 35%;
+	left: 36%;
+}
+
+#charityInstructions{
+	text-align:center;
+}
+
+#charityInstructions .arrow-up{
+	position: fixed;
+	bottom: 1%;
+	left: 43%;
+}
+
+h4{
+	text-align: center;
+	color: white;
+	margin: 0;
+	margin-top: 5%;
+	letter-spacing: 2px;
+	font-size: 1.2em;
+}
+
+/*DataViz*/
+
+#infoContainer{
+	width:100%;
+	height:30%;
+	background:white;
+}
+
+.topInfo{
+	width:100%;
+	height:60%;
+	text-align:center;
+}
+
+.bottomInfo{
+	width:100%;
+	height:40%;
+}
+
+.kilometers{
+	font-size: 3rem;
+	margin: 10px 0;
+	font-family: "proximaNovaSemiBold";
+	color: grey;
+	height: 45%;
+
+}
+
+.totalKilometers{
+	font-size: 1.4rem;
+	margin: 2px 0;
+	font-family: "proximaNovaSemiBold";
+	color: grey;
+}
+
+
+table{
+	width:100%;
+	text-align:center;
+}
+
+#watchIcon{
+	width:25%;
+}
+
+#heartIcon{
+	width:20%;
+}
+
+#runningIcon{
+	width:30%;
+}
+
+#tableMetrics{
+	font-size:0.7rem;
+	font-family: "proximaNovaSemiBold";
+	color:grey;
+}
+
+
+#dataInfo{
+	font-size:1.2rem;
+	font-family: "proximaNovaSemiBold";
+	color:grey;
+}
+
+canvas {
+	position: fixed;
+	/*opacity:0.5;*/
+	bottom:0;
+	left:0;
+	background:none;
+	opacity:1;
+	height: 63%;
+	width: 100%;
+}
+
+
+#btn-download {
+	position: fixed;
+	z-index: 1000000000;
+}
+
+
+/*PLACE HOLDER STYLING*/
+
+::-webkit-input-placeholder { color: #A3ABB7;font-family: "proximaNovaSemiBold";font-size:1.7rem;padding-top:5px;letter-spacing: 2px;text-align:center;}
+::-moz-placeholder { color: #A3ABB7;font-family: "proximaNovaSemiBold";font-size: 2rem;text-align:center;} /* firefox 19+ */
+:-ms-input-placeholder { color: #A3ABB7;font-family: "proximaNovaSemiBold";font-size: 2rem;text-align:center;} /* ie */
+input:-moz-placeholder { color: #A3ABB7;font-family: "proximaNovaSemiBold";font-size: 2rem;text-align:center;}
+
+/* Chrome, Safari, Opera */ 
+
+
+
+
+
+@-webkit-keyframes backgroundFade {
+    0%   {z-index: 60000;opacity: 1; -webkit-transform: scale(1.1);}
+    80%  {z-index: 60000;opacity: 1;-webkit-transform: scale(1.2);}
+    90%	 {z-index: 60000;opacity: 0.6;-webkit-transform: scale(1.29);}
+    100% {z-index: 0;opacity: 0;-webkit-transform: scale(1.3);}
+
+}
+
+@-webkit-keyframes logoFade {
+	0%   {z-index: 60001;opacity: 1;}
+    80%  {z-index: 60001;opacity: 1;}
+    90%	 {z-index: 60001;opacity: 0.6;}
+    100% {z-index: 0;opacity: 0;}
+
+}
+
+@keyframes backgroundFade {
+    0%   {z-index: 60000;opacity: 1; transform: scale(1.1);}
+    80%  {z-index: 60000;opacity: 1;transform: scale(1.12);}
+    90%	 {z-index: 60000;opacity: 0.6;transform: scale(1.2);}
+    100% {z-index: 0;opacity: 0;transform: scale(1.3);}
+
+}
+
+@keyframes logoFade {
+	0%   {z-index: 60001;opacity: 1;}
+    80%  {z-index: 60001;opacity: 1;}
+    90%	 {z-index: 60001;opacity: 0.6;}
+    100% {z-index: 0;opacity: 0;}
+
+}
