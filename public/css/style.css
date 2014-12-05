@@ -208,7 +208,7 @@ input{
 #submitArrow img{
 	width: 20%;
 	opacity: 0;
-	margin: 35% auto;
+	margin: 29% auto;
 }
 
 #selectInstructions{
@@ -266,7 +266,7 @@ input{
 
 #svgContainer{
 	width: 100%;
-	height: 30%;
+	height: 32%;
 	margin: 50% auto;
 }
 
@@ -274,7 +274,7 @@ input{
 #runningMan{
 	width: 25%;
 	position: fixed;
-	top: 35%;
+	top: 37%;
 	left: 36%;
 }
 
@@ -370,16 +370,65 @@ canvas {
 	left:0;
 	background:none;
 	opacity:1;
-	height: 63%;
+	height: 65%;
 	width: 100%;
+
+	/*Canvas Rendering*/
+	image-rendering: optimizeSpeed;             // Older versions of FF
+    image-rendering: -moz-crisp-edges;          // FF 6.0+
+    image-rendering: -webkit-optimize-contrast; // Webkit
+    image-rendering: -o-crisp-edges;            // OS X & Windows Opera (12.02+)
+    image-rendering: optimize-contrast;         // Possible future browsers.
+    -ms-interpolation-mode: nearest-neighbor;   // IE
+}
+
+#svgContainer canvas{
+	z-index: 5000;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 156px;
+	font-color:white;
 }
 
 
-#btn-download {
-	position: fixed;
-	z-index: 1000000000;
+
+
+.buttonContainer{
+	height: 25%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	background: rgba(249, 249, 249, 0.6);
+	z-index: 1;
+	top: 40%;
+	text-align:center;
+	padding-right: 17px;
+	padding-left: 17px;
+	font-family:"proximaNovaSemiBold";
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
+.fontAwesome{
+	padding:0px;
+}
+
+.fontAwesome li{
+	display:inline;
+	font-size:23px;
+	padding-right:15px;
+	padding-left:15px;
+	color:rgb(150, 150, 150);
+}
+
+#motivationText{
+	font-family:"proximaNovaSemiBold";
+	font-size:1em;
+	color:rgb(150, 150, 150);
+}
 
 /*PLACE HOLDER STYLING*/
 

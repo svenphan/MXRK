@@ -2,7 +2,11 @@
 App = {
   viz_offset_x: 0.0006,
   viz_offset_y: 0.0006,
+  mainView: null,
   base64data: null,
+  mode:null,
+  prevStep:null,
+  processingClone: null,
   init: function() {
 
     var that = this;
@@ -18,7 +22,7 @@ App = {
           $('#inputForm').on('click', function() {
             $("#submit").animate({
                       opacity:1,
-                      marginTop:"90px",
+                      marginTop:"60px",
                   },700);   
           });
         
@@ -32,9 +36,8 @@ App = {
 
     // Export selectors engine
     var $$ = Dom7;
-
     // Add main View
-    var mainView = myApp.addView('.view-main', {
+    that.mainView = myApp.addView('.view-main', {
         // Enable dynamic Navbar
         dynamicNavbar: true,
         // Enable Dom Cache so we can use all inline pages
@@ -42,19 +45,36 @@ App = {
     });
 
     myApp.onPageInit('about', function (page) {
+      $('#LGBT').on('click',function(){
+        that.mode=1;
+        console.log('clicked 1');
+      });
+      $('#WomenRights').on('click',function(){
+        that.mode=2;
+        console.log('clicked 2');
+      });
+
+    });
+
+    myApp.onPageInit('charityPage', function (page) {
+      $(document).on('click','#svgContainer',function(){
+        $( "#runningMan" ).remove();
+        console.log('circleLoading');
+        that.circleLoading();
+      });
     });
 
     /*DATA VIZ PAGE*/ 
     myApp.onPageInit('dataViz', function (page) {
       console.log('dataViz!');
+      $('.buttonContainer').hide();
       that.stopTimer();
       that.getJawboneData();
-      setInterval(that.getJawboneData, 600000);
+      setInterval(that.getJawboneData, 10000);
 
     });
 
     $(document).on('click', '#btn-download', function() {
-
       console.log('hitt');
       that.downloadImage();
     });
@@ -73,27 +93,54 @@ App = {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
-          'Authorization':
+          //'Authorization': '',
         },
         success: function(data) {
-            //steps data (more data here)var steps = data.data.items[0].title;
-            var steps = data.data.items[0].details.steps;
             var kilometers = data.data.items[0].details.km;
-            var constraint = 20;
-            console.log(steps);
-            console.log(constraint);
-            console.log(data);
-            $('.steps').html(steps); 
-            $('.kilometers').html(kilometers)+'KM'; 
-            //controlling the data
-            if(steps >= constraint) {
-              App.draw(0.00095, 0.00095,360, 100, 100);  
-              /*
-               App.draw(0.0006, 0.0006, (Math.floor(Math.random() * (360 - 10))+10), 10, 100);             
-              */
+            var steps = data.data.items[0].details.steps;
+            //steps data (more data here)var steps = data.data.items[0].title;
+            
+            console.log('App.prevStep is: ', App.prevStep);
+            console.log('steps is: ', steps);
+
+            if(App.prevStep!=steps){
+              App.prevStep = steps;
+              var constraint = 3400;
+              console.log(that.prevStep);
+              console.log(steps);
+              console.log(constraint);
+              console.log(data);
+              $('.steps').html(steps); 
+              $('.kilometers').html(kilometers)+'KM'; 
+              console.log("i am running");
+              //controlling the data
+              if(steps >= constraint) {
+                if(that.mode==1){
+                  App.draw(0.00095, 0.00095,160, 100, 100);
+                  //App.draw(0.0008, 0.0008,360, 200, 20);
+                  console.log('drawing color 1');  
+                }
+                else if(that.mode==2){
+                  App.draw(0.00095, 0.00095,160, 100, 100);  
+                  console.log('drawing color 2222');  
+                }
+                else{
+                  console.log('this had an error for your choices')
+                }
+              } 
+              else {
+                console.log('this is your else statement');
+              }
+              App.processingClone.loop();
+
             } else {
-              console.log('this is your else statement');
+              App.processingClone.noLoop();
             }
+
+              if(steps>=8600){
+                $('.buttonContainer').show();
+              }          
+
         },
         error: function(response) {
             console.log('data error', response);
@@ -180,11 +227,11 @@ App = {
     //create processing instance
 
     var canvas = document.getElementById('the_canvas');
-    new Processing(canvas, coffee_draw);
+    App.processingClone = new Processing(canvas, coffee_draw);
 
-    setInterval(function() {
-      that.setImageToCanvasDrawings();
-    }, 3000);
+    //setInterval(function() {
+      //that.setImageToCanvasDrawings();
+    //}, 3000);
 
   },
   getRandomID: function(){
@@ -219,35 +266,36 @@ App = {
     
     timer();
   },
-  setImageToCanvasDrawings:function(){
+  circleLoading:function(){
+      var n, id, progress;
+      progress = new CircularProgress({
+        radius: 89,
+        strokeStyle: '#89D2DC',
+        lineWidth:4,
+        text: {
+          font: 'bold 35px proximaNovaSemiBold',
+          fillStyle:'white'
+        },
+      });
 
-    
-    // // set canvasImg image src to dataURL
-    // // so it can be saved as an image
-    // //document.getElementById('canvasImg').src = dataURL;
-
-    // var button = document.getElementById('btn-download');
-    // // button.addEventListener('click', function (e) {
-    // var dataURL = canvas.toDataURL('image/png');
-
-    // this.base64data = canvas.toDataURL('image/png').replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-
-    // button.href = this.base64data;
-    // console.log(dataURL);
-    // // });
-
+      $('#svgContainer').append(progress.el);
+      n = 0;
+      id = setInterval(function () {
+        if (n == 100) {
+          clearInterval(id);
+        App.mainView.router.load({url: 'dataViz.html'});
+        }
+        progress.update(n++);
+      }, 25);
   },
+ 
   downloadImage: function() {
 
     var canvas = document.getElementById('the_canvas');
     //var dataURL = canvas.toDataURL();
-
-
     canvas.toBlob(function(blob) {
       saveAs(blob, "canvas.png");
-  });
-
-
+    });
   }
 }
 
